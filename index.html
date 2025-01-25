@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free PDF to Word Converter</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://www.nitrocdn.com/favicon.ico" alt="Nitro Logo">
+                <span>nitro</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn-secondary" id="createAccountBtn">Create Free Account</button>
+                <button class="btn-secondary">Sign In</button>
+                <button class="btn-primary" id="tryProBtn">Try Pro</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Coming Soon Popup -->
+    <div class="popup" id="comingSoonPopup">
+        <div class="popup-content">
+            <button class="close-btn" id="closePopupBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="popup-body">
+                <h3>Coming Soon!</h3>
+                <p>Pro features are currently under development. Stay tuned for amazing new features!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Panel -->
+    <div class="registration-panel">
+        <div class="registration-content">
+            <button class="close-btn" id="closeRegisterBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2>Create Your Free Account</h2>
+            <form class="register-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+            <p class="terms">By creating an account, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
+
+    <main>
+        <h1>Free <span class="highlight">PDF to Word</span><br>Converter</h1>
+        <p class="subtitle">Convert your PDF to a fully editable Word document. Using AI technology to ensure a perfect conversion.</p>
+
+        <div class="converter-container">
+            <div class="custom-dropdown">
+                <div class="selected-option" id="selectedOption">
+                    <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                        <path d="M13 2v7h7"></path>
+                    </svg>
+                    PDF Compression
+                </div>
+                <div class="options-container" id="optionsContainer">
+                    <div class="option" data-value="pdf-compress">
+                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <path d="M13 2v7h7"></path>
+                        </svg>
+                        PDF Compression
+                    </div>
+                    <div class="option" data-value="image-pdf">
+                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <path d="M21 15l-5-5L5 21"></path>
+                        </svg>
+                        Image to PDF
+                    </div>
+                    <div class="option" data-value="image-text">
+                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                            <path d="M16 13H8"></path>
+                            <path d="M16 17H8"></path>
+                            <path d="M10 9H8"></path>
+                        </svg>
+                        Image to Text
+                    </div>
+                    <div class="option" data-value="excel-merge">
+                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                            <path d="M8 13h8"></path>
+                            <path d="M8 17h8"></path>
+                            <path d="M8 9h2"></path>
+                        </svg>
+                        Excel Merge
+                    </div>
+                    <div class="option" data-value="resize-image">
+                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <path d="M21 12l-3-3-3 3"></path>
+                            <path d="M15 12l3-3 3 3"></path>
+                        </svg>
+                        Resize Image
+                    </div>
+                    <div class="option" data-value="pdf-excel">
+                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                            <path d="M8 13h8"></path>
+                            <path d="M8 17h8"></path>
+                            <path d="M8 9h2"></path>
+                        </svg>
+                        PDF to Excel
+                    </div>
+                    <div class="option" data-value="image-webp">
+                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <path d="M21 15l-5-5L5 21"></path>
+                        </svg>
+                        Image to WebP
+                    </div>
+                    <div class="option" data-value="pdf-word">
+                        <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                            <path d="M16 13H8"></path>
+                            <path d="M16 17H8"></path>
+                            <path d="M10 9H8"></path>
+                        </svg>
+                        PDF to Word
+                    </div>
+                </div>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <span>Select a file</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <span>Convert to PDF Compression</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <span>Download your PDF</span>
+                </div>
+            </div>
+
+            <div class="drop-zone">
+                <div class="drop-zone-content">
+                    <p>Drop your file here</p>
+                    <button class="btn-primary">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Choose file
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="https://www.nitrocdn.com/favicon.ico" alt="Nitro Logo">
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3955/3955024.png" alt="Instagram">
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="Twitter">
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png" alt="YouTube">
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-functions">
+                <h3>Our Services</h3>
+                <div class="functions-grid">
+                    <a href="#" class="function-item">
+                        <svg class="function-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <path d="M13 2v7h7"></path>
+                        </svg>
+                        <span>PDF Compression</span>
+                    </a>
+                    <a href="#" class="function-item">
+                        <svg class="function-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <path d="M21 15l-5-5L5 21"></path>
+                        </svg>
+                        <span>Image to PDF</span>
+                    </a>
+                    <a href="#" class="function-item">
+                        <svg class="function-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                            <path d="M16 13H8"></path>
+                            <path d="M16 17H8"></path>
+                            <path d="M10 9H8"></path>
+                        </svg>
+                        <span>Image to Text</span>
+                    </a>
+                    <a href="#" class="function-item">
+                        <svg class="function-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                            <path d="M8 13h8"></path>
+                            <path d="M8 17h8"></path>
+                            <path d="M8 9h2"></path>
+                        </svg>
+                        <span>Excel Merge</span>
+                    </a>
+                    <a href="#" class="function-item">
+                        <svg class="function-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <path d="M21 12l-3-3-3 3"></path>
+                            <path d="M15 12l3-3 3 3"></path>
+                        </svg>
+                        <span>Resize Image</span>
+                    </a>
+                    <a href="#" class="function-item">
+                        <svg class="function-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                            <path d="M8 13h8"></path>
+                            <path d="M8 17h8"></path>
+                            <path d="M8 9h2"></path>
+                        </svg>
+                        <span>PDF to Excel</span>
+                    </a>
+                    <a href="#" class="function-item">
+                        <svg class="function-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <path d="M21 15l-5-5L5 21"></path>
+                        </svg>
+                        <span>Image to WebP</span>
+                    </a>
+                    <a href="#" class="function-item">
+                        <svg class="function-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <path d="M14 2v6h6"></path>
+                            <path d="M16 13H8"></path>
+                            <path d="M16 17H8"></path>
+                            <path d="M10 9H8"></path>
+                        </svg>
+                        <span>PDF to Word</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Copyright Policy</a>
+                    <a href="#">IP & Patents</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="/script.js"></script>
+</body>
+</html>
